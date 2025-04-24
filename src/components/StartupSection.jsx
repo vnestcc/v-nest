@@ -219,7 +219,7 @@ const StartupSection = () => {
   ];
 
   return (
-    <section className="w-screen relative overflow-hidden min-h-[150vh]">
+    <section id="our-startups" className="w-screen relative overflow-hidden min-h-[150vh]">
       {/* Add global CSS for text shadow and gradients */}
       <style jsx global>{`
         .text-shadow {

@@ -37,8 +37,8 @@ export default function Home() {
       <StartupSection />
       <StepsToApply />
       <FoundersNote />
-      <Frequently />
       <EcosystemPartners />
+      <Frequently />
       <Footer />
     </main>
   );

@@ -1,14 +1,10 @@
 'use client';
 
-import React, { useCallback } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Footer = () => {
-  const scrollToTop = useCallback(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
   return (
     <footer className="relative w-full overflow-hidden mt-[-1rem]">
       {/* Background with modern gradient effect */}
@@ -43,28 +39,6 @@ const Footer = () => {
       <div className="absolute top-0 left-0 w-full h-10 overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-purple-700/30 to-indigo-600/30 transform -skew-y-3"></div>
       </div>
-
-      {/* Floating scroll-to-top button */}
-      <button 
-        onClick={scrollToTop}
-        className="group fixed right-6 bottom-6 w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-indigo-700 flex items-center justify-center shadow-lg hover:from-purple-500 hover:to-indigo-600 transition-all duration-300 z-50 hover:scale-110"
-        aria-label="Scroll to top"
-      >
-        <svg 
-          xmlns="http://www.w3.org/2000/svg" 
-          className="h-4 w-4 text-white" 
-          fill="none" 
-          viewBox="0 0 24 24" 
-          stroke="currentColor"
-        >
-          <path 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            strokeWidth={2} 
-            d="M5 10l7-7m0 0l7 7m-7-7v18" 
-          />
-        </svg>
-      </button>
 
       {/* Main footer content */}
       <div className="relative py-8 px-6 z-10">
@@ -114,14 +88,30 @@ const Footer = () => {
               <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-purple-500 to-transparent"></div>
             </h2>
             <div className="flex flex-col space-y-1.5">
-              {['Home', 'Our Startups', 'Steps to apply', 'FAQs', 'Events', 'Partners'].map((item, index) => (
+              {[
+                { name: 'Home', path: '/' },
+                { name: 'Our Startups', path: '#our-startups' },
+                { name: 'Steps to apply', path: '#steps-to-apply' },
+                { name: 'FAQs', path: '#faqs' },
+                { name: 'About Us', path: '#about-us' },
+                { name: 'Partners', path: '#partners' }
+              ].map((item, index) => (
                 <Link 
                   key={index}
-                  href={`/${item === 'Home' ? '' : item.toLowerCase().replace(/\s+/g, '-')}`} 
+                  href={item.path}
                   className="text-white text-xs group flex items-center transition-all duration-300 hover:translate-x-1"
+                  onClick={(e) => {
+                    if (item.path.startsWith('#')) {
+                      e.preventDefault();
+                      const element = document.querySelector(item.path);
+                      if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                      }
+                    }
+                  }}
                 >
                   <span className="w-0 group-hover:w-2 h-0.5 mr-0 group-hover:mr-1 bg-purple-400 transition-all duration-300"></span>
-                  {item}
+                  {item.name}
                 </Link>
               ))}
             </div>
@@ -173,7 +163,7 @@ const Footer = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
-                <div className="text-white">91-xxxxxxxxxx</div>
+                <div className="text-white">91-9473832992</div>
               </div>
               
               <div className="flex items-center">

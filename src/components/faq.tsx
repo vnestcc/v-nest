@@ -31,7 +31,7 @@ export default function Frequently() {
   const [selectedFAQ, setSelectedFAQ] = useState<FAQ | null>(null);
 
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between px-10 py-20 relative">
+    <section id="faqs" className="flex flex-col md:flex-row items-center justify-between px-10 py-20 relative pb-42">
       <div className="w-full md:w-1/2 flex flex-col items-start justify-center space-y-6">
         <div className="ml-20">
           <SectionHeading className="text-5xl font-extrabold mb-8" isHero={false} isFirstComponent={false}>FAQS</SectionHeading>
