@@ -1,8 +1,10 @@
 // app/page.js
 "use client";
+import React from 'react';
 import StartupSection from '../components/StartupSection';
 import StepsToApply from '../components/StepsToApply';
 import FoundersNote from '../components/FoundersNote';
+import Whoweare from './components/Whoweare';
 
 export default function Home() {
   return (
@@ -34,6 +36,8 @@ export default function Home() {
       <StartupSection />
       <StepsToApply />
       <FoundersNote />
+      <Whoweare />
     </main>
   );
 }
+

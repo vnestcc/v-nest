@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+
 import { Outfit, Space_Grotesk, Spline_Sans_Mono } from "next/font/google";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 // Primary font - clean, modern and professional
@@ -23,6 +25,16 @@ const splineSansMono = Spline_Sans_Mono({
   display: "swap",
 });
 
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "VNEST - Startup Incubator",
   description: "VNEST Startup Incubator Platform",
@@ -34,9 +46,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+
     <html lang="en" className="w-screen overflow-x-hidden">
       <body
-        className={`${outfit.variable} ${spaceGrotesk.variable} ${splineSansMono.variable} antialiased w-screen overflow-x-hidden m-0 p-0`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased ${outfit.variable} ${spaceGrotesk.variable} ${splineSansMono.variable} antialiased w-screen overflow-x-hidden m-0 p-0`}
+
       >
         {children}
       </body>

@@ -42,6 +42,8 @@
   --font-sans: var(--font-primary);
   --font-heading: var(--font-heading);
   --font-mono: var(--font-mono);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -144,4 +146,12 @@ code, pre {
 .tech-text {
   font-family: var(--font-mono), monospace;
   letter-spacing: var(--ls-tight);
+
+  font-family: 'Gentium Book Plus', serif;
+  background: linear-gradient(to bottom right, #6a0dad, #000000, #6a0dad); /* purple-950 to black to purple-950 */
+  color: white; /* Ensures text remains visible against dark background */
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Gentium Book Plus', serif; /* Apply font globally to headers and paragraphs */
 }
