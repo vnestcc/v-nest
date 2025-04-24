@@ -4,7 +4,7 @@ import {
   GraduationCap, DollarSign, Users, Star, Box, FileText, 
   UserPlus, Share2, Cpu, Shield, Layers, GitPullRequest, 
 } from 'lucide-react';
-import SectionHeading from '../../components/SectionHeading';
+import SectionHeading from './SectionHeading';
 
 const WhoWeAre: React.FC = () => { 
   const convenors = [ 

@@ -111,20 +111,20 @@ const HoneycombGrid = ({ startups }) => {
         { x: '76%', y: '38%', size: 220, index: 10 },
       
       // New logos - First row (3 logos)
-      { x: '30%', y: '55.5%', size: 250, index: 11 },
+      { x: '32%', y: '57%', size: 250, index: 11 },
       { x: '50%', y: '57%', size: 260, index: 12 },
-      { x: '70%', y: '56%', size: 260, index: 13 },
+      { x: '68%', y: '58%', size: 260, index: 13 },
       
       // New logos - Second row (4 logos)
-      { x: '20%', y: '69.5%', size: 240, index: 14 },
-      { x: '39%', y: '72%', size: 270, index: 15 },
-      { x: '60%', y: '72.5%', size: 260, index: 16 },
-      { x: '78%', y: '72%', size: 240, index: 17 },
+      { x: '23%', y: '73%', size: 240, index: 14 },
+      { x: '41%', y: '74%', size: 270, index: 15 },
+      { x: '59%', y: '74%', size: 260, index: 16 },
+      { x: '76%', y: '74%', size: 240, index: 17 },
       
       // New logos - Third row (3 logos)
-      { x: '28%', y: '87%', size: 250, index: 18 },
-      { x: '49%', y: '88%', size: 260, index: 19 },
-      { x: '69%', y: '88%', size: 250, index: 20 },
+      { x: '31.5%', y: '90%', size: 250, index: 18 },
+      { x: '50%', y: '91%', size: 260, index: 19 },
+      { x: '68%', y: '89%', size: 250, index: 20 },
       
       // New logos - Fourth row (1 logo, placeholder for future additions)
       // { x: '50%', y: '100%', size: 220, index: 21 },
