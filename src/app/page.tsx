@@ -8,6 +8,8 @@ import Whoweare from '../components/Whoweare';
 import HeroSection from "@/components/herosection";
 import Header from "@/components/header";
 import Frequently from "@/components/faq";
+import EcosystemPartners from '../components/EcosystemPartners';
+import Footer from "../components/footer";
 
 export default function Home() {
   return (
@@ -42,7 +44,8 @@ export default function Home() {
       <StepsToApply />
       <FoundersNote />
       <Frequently />
-      
+      <EcosystemPartners />
+      <Footer />
     </main>
   );
 }
