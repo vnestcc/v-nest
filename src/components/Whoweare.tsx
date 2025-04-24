@@ -4,13 +4,14 @@ import {
   GraduationCap, DollarSign, Users, Star, Box, FileText, 
   UserPlus, Share2, Cpu, Shield, Layers, GitPullRequest, 
 } from 'lucide-react';
+import SectionHeading from './SectionHeading';
 
 const WhoWeAre: React.FC = () => { 
   const convenors = [ 
     { id: 1, name: 'Dr. Sasikumar M', position: 'Director, V-NEST', image: '/convenors/image.png' }, 
     { id: 2, name: 'Dr. Ravi V', position: 'Assistant Director, V-NEST (IIC)', image: '/convenors/image2.png' }, 
     { id: 3, name: 'Dr. Karthiyaini S', position: 'Assistant Director, V-NEST (EDC)', image: '/convenors/image3.png' }, 
-    { id: 4, name: 'Dr. Jayarangan L', position: 'Manager, Incubation', image: '/convenors/image.png' }, 
+    // { id: 4, name: 'Dr. Jayarangan L', position: 'Manager, Incubation', image: '/convenors/image.png' }, 
   ];
   
 
@@ -53,12 +54,14 @@ const WhoWeAre: React.FC = () => {
   }, [benefitsList.length]);
 
   return (
-    <div className="text-white bg-gradient-to-br from-purple-950 via-black to-purple-950">
+    <>
       {/* Who We Are */}
-      <section className="pt-20">
+      <section id="about-us" className="pt-20 text-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center px-4">
           <div className="bg-purple-950/40 p-8 rounded-2xl border border-purple-800/30">
-            <h1 className="text-6xl font-extrabold mb-8">Who are we</h1>
+            <SectionHeading className="text-6xl font-extrabold mb-8" isHero={false} isFirstComponent={false}>
+              Who are we
+            </SectionHeading>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="mt-1">
@@ -138,19 +141,23 @@ const WhoWeAre: React.FC = () => {
       </section>
 
       {/* Convenors */}
-      <section className="pt-32">
+      <section className="pt-32 text-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-5xl font-extrabold mb-16 text-white">Convenors</h1>
+          <SectionHeading className="text-5xl font-extrabold mb-16 text-white" isHero={false} isFirstComponent={false}>
+            Convenors
+          </SectionHeading>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {convenors.map((c) => (
           <div key={c.id} className="group relative h-80">
-            {/* Convenor Image */}
-            <div className="absolute inset-x-0 top-0 rounded-xl bg-[#3b0a64] overflow-hidden h-64 cursor-pointer transform transition-all duration-700 ease-in-out group-hover:-translate-y-6 group-hover:shadow-lg">
-          <img
-            src={c.image}
-            alt={c.name}
-            className="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:translate-y-[-10px]"
-          />
+            {/* Convenor Image with Border */}
+            <div className="absolute inset-x-0 top-0 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-800 p-[8px] h-64 transform transition-all duration-700 ease-in-out group-hover:-translate-y-6 group-hover:shadow-xl shadow-[0_0_20px_rgba(129,140,248,0.6)]">
+              <div className="w-full h-full rounded-lg bg-[#3b0a64] overflow-hidden">
+                <img
+                  src={c.image}
+                  alt={c.name}
+                  className="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:translate-y-[-10px]"
+                />
+              </div>
             </div>
             {/* Convenor Details */}
             <div className="absolute inset-x-0 bottom-0 bg-[#2a003f] rounded-xl p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out delay-100 shadow-lg border border-purple-500/30">
@@ -166,9 +173,11 @@ const WhoWeAre: React.FC = () => {
       </section>
 
       {/* Benefits */}
-      <section id="benefits-section" className="pt-32 pb-16">
+      <section id="benefits-section" className="pt-32 pb-16 text-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-5xl font-extrabold mb-8">Benefits</h1>
+          <SectionHeading className="text-5xl font-extrabold mb-8" isHero={false} isFirstComponent={false}>
+            Benefits
+          </SectionHeading>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefitsList.map((b, i) => (
               <div
@@ -187,7 +196,7 @@ const WhoWeAre: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

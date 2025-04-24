@@ -2,39 +2,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import HoneycombGrid from './HoneycombGrid';
-
-// Create a client-side only component for stars
-const StarsBackground = () => {
-  const [stars, setStars] = useState([]);
-  
-  useEffect(() => {
-    // Only generate stars on the client side after component mounts
-    const newStars = Array(100).fill().map((_, i) => ({
-      id: i,
-      top: `${Math.random() * 100}%`,
-      left: `${Math.random() * 100}%`,
-      duration: 2 + Math.random() * 5,
-      delay: Math.random() * 5
-    }));
-    setStars(newStars);
-  }, []);
-  
-  return (
-    <div className="absolute inset-0 w-screen h-screen overflow-hidden z-10 pointer-events-none">
-      {stars.map((star) => (
-        <div 
-          key={star.id}
-          className="absolute w-1 h-1 rounded-full bg-white opacity-30"
-          style={{
-            top: star.top,
-            left: star.left,
-            animation: `twinkle ${star.duration}s infinite ${star.delay}s`
-          }}
-        ></div>
-      ))}
-    </div>
-  );
-};
+import SectionHeading from './SectionHeading';
 
 const StartupSection = () => {
   const startups = [
@@ -153,25 +121,105 @@ const StartupSection = () => {
       name: "Centurion Mobility",
       category: "Transportation",
       description: "Centurion Mobility develops innovative transportation solutions for urban and industrial applications.",
-      logo: "/Startups/Centurion Mobility.jpeg",
+      logo: "/removedbg/Centurion_Mobility-removebg-preview.png",
       founded: "2023",
       funding: "$3.2M Seed",
       website: "https://example.com"
     },
     {
       id: 13,
-      name: "SASI",
-      category: "Software Systems",
-      description: "SASI creates integrated software systems for enterprise resource planning and management.",
-      logo: "/Startups/sasi1.jpg",
+      name: "Delight Departures",
+      category: "Travel & Tourism",
+      description: "Delight Departures offers innovative travel solutions and premium holiday experiences with personalized service.",
+      logo: "/removedbg/Delight_Departures-removebg-preview.png",
       founded: "2022",
-      funding: "$2.1M Seed",
+      funding: "$3.5M Seed",
+      website: "https://example.com"
+    },
+    {
+      id: 14,
+      name: "DAIRA",
+      category: "Lifestyle & Wellness",
+      description: "DAIRA creates holistic wellness solutions where every step leads to continuous personal growth and development.",
+      logo: "/removedbg/DAIRA_Logo-removebg-preview.png",
+      founded: "2021",
+      funding: "$2.8M Seed",
+      website: "https://example.com"
+    },
+    {
+      id: 15,
+      name: "Quetzalcoatl",
+      category: "Digital Identity",
+      description: "Quetzalcoatl specializes in secure digital identity solutions and advanced biometric authentication systems.",
+      logo: "/removedbg/Quetzalcoatl-removebg-preview.png",
+      founded: "2021",
+      funding: "$4.1M Seed",
+      website: "https://example.com"
+    },
+    {
+      id: 16,
+      name: "SpectoV",
+      category: "Integrated Systems",
+      description: "SpectoV creates innovative integrated systems that harmonize diverse technologies for optimal performance.",
+      logo: "/removedbg/SpectoV-Photoroom.png",
+      founded: "2022",
+      funding: "$5.7M Series A",
+      website: "https://example.com"
+    },
+    {
+      id: 17,
+      name: "Azitta S AI",
+      category: "Artificial Intelligence",
+      description: "Azitta S AI is innovating with intelligence to develop cutting-edge AI solutions that transform industries and enhance business operations.",
+      logo: "/removedbg/AzittaS_AI-removebg-preview.png",
+      founded: "2021",
+      funding: "$4.8M Seed",
+      website: "https://example.com"
+    },
+    {
+      id: 18,
+      name: "TESSA",
+      category: "Energy Solutions",
+      description: "TESSA Energy Solutions provides advanced renewable energy systems and sustainable power management technology.",
+      logo: "/removedbg/TESSA-removebg-preview.png",
+      founded: "2020",
+      funding: "$6.2M Series A",
+      website: "https://example.com"
+    },
+    {
+      id: 19,
+      name: "The Energy Company",
+      category: "Renewable Energy",
+      description: "The Energy Company develops innovative renewable energy solutions with a focus on sustainability and efficiency.",
+      logo: "/removedbg/The_Energy_Company-removebg-preview.png",
+      founded: "2021",
+      funding: "$4.9M Seed",
+      website: "https://example.com"
+    },
+    {
+      id: 20,
+      name: "ZVIA",
+      category: "Fashion & Design",
+      description: "ZVIA creates elegant, minimalist design solutions with a focus on sustainable fashion and lifestyle products.",
+      logo: "/removedbg/ZVIA-removebg-preview.png",
+      founded: "2022",
+      funding: "$3.4M Seed",
+      website: "https://example.com"
+    },
+    {
+      id: 21,
+      name: "SPICE",
+      category: "Lifestyle & Culinary",
+      description: "SPICE revolutionizes the culinary experience with innovative food tech solutions and flavor optimization.",
+      logo: "/removedbg/ChatGPT Image Apr 24, 2025, 11_42_40 PM-Photoroom.png",
+      founded: "2023",
+      funding: "$2.3M Seed",
       website: "https://example.com"
     }
   ];
 
   return (
-    <section className="w-screen bg-black relative overflow-hidden">
+    <section id="our-startups" className="w-screen relative overflow-hidden min-h-[150vh]">
       {/* Add global CSS for text shadow and gradients */}
       <style jsx global>{`
         .text-shadow {
@@ -183,23 +231,15 @@ const StartupSection = () => {
         .bg-radial-purple {
           background: radial-gradient(circle at center, rgba(126, 34, 206, 0.3) 0%, rgba(0, 0, 0, 0) 80%);
           width: 100vw;
-          height: 100vh;
-        }
-        @keyframes twinkle {
-          0% { opacity: 0.1; }
-          50% { opacity: 0.7; }
-          100% { opacity: 0.1; }
+          height: 140vh;
         }
       `}</style>
       
-      {/* Client-side rendered stars */}
-      <StarsBackground />
-      
       <div className="container mx-auto px-4 w-full py-8">
         <div className="pt-10 pb-12 relative z-10 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 title-glow tracking-wide uppercase">
+          <SectionHeading isFirstComponent={true} className="mb-6">
             OUR STARTUPS
-          </h1>
+          </SectionHeading>
         </div>
         
         <div className="relative">

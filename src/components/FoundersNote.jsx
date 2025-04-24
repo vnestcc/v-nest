@@ -2,39 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-
-// Create a client-side only component for stars - reused from other components
-const StarsBackground = () => {
-  const [stars, setStars] = useState([]);
-  
-  useEffect(() => {
-    // Only generate stars on the client side after component mounts
-    const newStars = Array(100).fill().map((_, i) => ({
-      id: i,
-      top: `${Math.random() * 100}%`,
-      left: `${Math.random() * 100}%`,
-      duration: 2 + Math.random() * 5,
-      delay: Math.random() * 5
-    }));
-    setStars(newStars);
-  }, []);
-  
-  return (
-    <div className="absolute inset-0 w-screen h-full overflow-hidden z-10 pointer-events-none">
-      {stars.map((star) => (
-        <div 
-          key={star.id}
-          className="absolute w-1 h-1 rounded-full bg-white opacity-30"
-          style={{
-            top: star.top,
-            left: star.left,
-            animation: `twinkle ${star.duration}s infinite ${star.delay}s`
-          }}
-        ></div>
-      ))}
-    </div>
-  );
-};
+import SectionHeading from './SectionHeading';
 
 const FoundersNote = () => {
   const [isCardVisible, setIsCardVisible] = useState(false);
@@ -50,9 +18,6 @@ const FoundersNote = () => {
   
   return (
     <section className="w-full relative overflow-x-hidden overflow-y-auto pb-32">
-      {/* Client-side rendered stars */}
-      <StarsBackground />
-      
       {/* Custom CSS for animations and effects */}
       <style jsx global>{`
         @keyframes float {
@@ -89,16 +54,17 @@ const FoundersNote = () => {
         }
       `}</style>
 
-      <div className="container mx-auto px-4 w-full py-32">
+      <div className="container mx-auto px-4 w-full py-16">
         <div className="pt-10 pb-20 relative z-10 text-center">
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold text-white mb-6 title-glow"
+          <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            FOUNDER'S NOTE
-          </motion.h1>
+            <SectionHeading isHero={false} isFirstComponent={false}>
+              FOUNDER'S NOTE
+            </SectionHeading>
+          </motion.div>
           <motion.p 
             className="fancy-text text-xl text-purple-200 max-w-2xl mx-auto"
             initial={{ opacity: 0 }}
@@ -172,12 +138,12 @@ const FoundersNote = () => {
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-white font-semibold fancy-text">Sasi Settu</h3>
+                      <h3 className="text-white font-semibold fancy-text">Dr. Sasikumar M</h3>
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#1D9BF0]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path>
                       </svg>
                     </div>
-                    <p className="text-gray-400 text-sm subheading">@sasisettu</p>
+                    {/* <p className="text-gray-400 text-sm subheading">@sasisettu</p> */}
                   </div>
                 </div>
 

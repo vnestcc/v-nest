@@ -9,14 +9,14 @@ const HoneycombGrid = ({ startups }) => {
 
   // Generate background hexagons on client-side only
   useEffect(() => {
-    // Create fewer background hexagons with varying properties
-    const hexagons = Array(15).fill().map((_, i) => {
+    // Create more background hexagons for the larger area
+    const hexagons = Array(25).fill().map((_, i) => {
       // Random size with more variation
       const size = Math.random() * 200 + 80;
       
-      // Random position covering the entire screen
+      // Random position covering the entire expanded screen
       const left = `${Math.random() * 100}%`;
-      const top = `${Math.random() * 100}%`;
+      const top = `${Math.random() * 140}%`;
       
       // Random opacity with mostly lower values for background effect
       const opacity = Math.random() * 0.08 + 0.02;
@@ -53,6 +53,7 @@ const HoneycombGrid = ({ startups }) => {
   // Map startup names to their transparent images
   const getTransparentImagePath = (startupName) => {
     const nameMap = {
+      // Existing startups
       "STEMTEC": "/removedbg/STEMTEC_logo-removebg-preview.png",
       "Quinproc": "/removedbg/Quinproc-removebg-preview.png",
       "Mechonix D2R": "/removedbg/Mechonix_D2R-removebg-preview.png",
@@ -63,7 +64,19 @@ const HoneycombGrid = ({ startups }) => {
       "FEYNMAN TECHSOL": "/removedbg/FEYNMAN_TECHSOL-removebg-preview.png",
       "CRACKUBE": "/removedbg/CRACKUBE_LOGO_JPG_TRANSPARENT-removebg-preview.png",
       "Chakaralaya Analytics": "/removedbg/Chakaralaya_Analytics-removebg-preview.png",
-      "MEDxAI Innovations": "/removedbg/LOGO_MEDxAI_Innovations-Photoroom.png"
+      "MEDxAI Innovations": "/removedbg/LOGO_MEDxAI_Innovations-Photoroom.png",
+      
+      // New startups
+      "Centurion Mobility": "/removedbg/Centurion_Mobility-removebg-preview.png",
+      "Delight Departures": "/removedbg/Delight_Departures-removebg-preview.png",
+      "DAIRA": "/removedbg/DAIRA_Logo-removebg-preview.png",
+      "Quetzalcoatl": "/removedbg/Quetzalcoatl-removebg-preview.png",
+      "SpectoV": "/removedbg/SpectoV-Photoroom.png",
+      "Azitta S AI": "/removedbg/AzittaS_AI-removebg-preview.png",
+      "TESSA": "/removedbg/TESSA-removebg-preview.png",
+      "The Energy Company": "/removedbg/The_Energy_Company-removebg-preview.png",
+      "ZVIA": "/removedbg/ZVIA-removebg-preview.png",
+      "SPICE": "/removedbg/ChatGPT Image Apr 24, 2025, 11_42_40 PM-Photoroom.png"
     };
     
     return nameMap[startupName] || null;
@@ -73,28 +86,48 @@ const HoneycombGrid = ({ startups }) => {
   const generateMainHexagons = () => {
     // Exactly positioned hexagons to match the first reference image
     const positions = [
+      // Top section - original positions
       // Left column
-      { x: '33%', y: '46%', size: 230, index: 0 }, // QuantumAI
+        { x: '33%', y: '24.5%', size: 230, index: 0 },
       
       // Left-center column
-      { x: '42%', y: '20%', size: 240, index: 1 }, // GreenEco
-      { x: '25.2%', y: '20%', size: 220, index: 2 }, // MediSync 
+        { x: '42%', y: '10%', size: 240, index: 1 },
+        { x: '25.2%', y: '10%', size: 220, index: 2 },
       
       // Center column
-      { x: '74%', y: '20%', size: 230, index: 3 }, // CyberShield
-      { x: '50%', y: '50%', size: 250, index: 4 }, // FinLeap (larger)
-      { x: '39%', y: '72%', size: 200, index: 5 }, // EduTech
+        { x: '74%', y: '10%', size: 230, index: 3 },
+        { x: '50%', y: '26%', size: 250, index: 4 }, // Center hexagon (larger)
+        { x: '40.5%', y: '41%', size: 250, index: 5 },
       
       // Right-center column
-      { x: '58%', y: '23%', size: 200, index: 6 }, // SpaceVista
-      { x: '60%', y: '75%', size: 220, index: 7 }, // BlockSafe
+        { x: '58%', y: '12%', size: 200, index: 6 },
+        { x: '59.5%', y: '41%', size: 250, index: 7 },
       
       // Right column
-      { x: '67%', y: '47%', size: 220, index: 8 }, // RoboTech
+        { x: '67%', y: '24%', size: 220, index: 8 },
       
-      // Bottom (extra)
-      { x: '24%', y: '71%', size: 220, index: 9 }, // AgroSmart - positioned below
-      { x: '76%', y: '71%', size: 220, index: 10 }, // AgroSmart - positioned below
+      // Bottom of top section
+        { x: '24%', y: '38%', size: 220, index: 9 },
+        { x: '76%', y: '38%', size: 220, index: 10 },
+      
+      // New logos - First row (3 logos)
+      { x: '32%', y: '57%', size: 250, index: 11 },
+      { x: '50%', y: '57%', size: 260, index: 12 },
+      { x: '68%', y: '58%', size: 260, index: 13 },
+      
+      // New logos - Second row (4 logos)
+      { x: '23.5%', y: '73.5%', size: 240, index: 14 },
+      { x: '41%', y: '74%', size: 270, index: 15 },
+      { x: '59%', y: '74%', size: 260, index: 16 },
+      { x: '76%', y: '74%', size: 240, index: 17 },
+      
+      // New logos - Third row (3 logos)
+      { x: '31.5%', y: '90%', size: 250, index: 18 },
+      { x: '50%', y: '90%', size: 250, index: 19 },
+      { x: '68%', y: '90%', size: 250, index: 20 },
+      
+      // New logos - Fourth row (1 logo, placeholder for future additions)
+      // { x: '50%', y: '100%', size: 220, index: 21 },
     ];
 
     return positions.map((position, i) => {
@@ -399,7 +432,7 @@ const HoneycombGrid = ({ startups }) => {
   };
 
   return (
-    <div className="relative w-full h-[80vh] overflow-hidden">
+    <div className="relative w-full h-[140vh] overflow-hidden">
       {/* Background gradient - updated to ensure full-width coverage */}
       <div className="fixed inset-0 w-screen h-screen bg-gradient-to-b from-black via-purple-950/10 to-purple-950/30 opacity-80 -z-10"></div>
       

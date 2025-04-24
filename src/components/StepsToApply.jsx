@@ -1,38 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
-
-// Create a client-side only component for stars
-const StarsBackground = () => {
-  const [stars, setStars] = useState([]);
-  
-  useEffect(() => {
-    // Only generate stars on the client side after component mounts
-    const newStars = Array(100).fill().map((_, i) => ({
-      id: i,
-      top: `${Math.random() * 100}%`,
-      left: `${Math.random() * 100}%`,
-      duration: 2 + Math.random() * 5,
-      delay: Math.random() * 5
-    }));
-    setStars(newStars);
-  }, []);
-  
-  return (
-    <div className="absolute inset-0 w-screen h-full overflow-hidden z-10 pointer-events-none">
-      {stars.map((star) => (
-        <div 
-          key={star.id}
-          className="absolute w-1 h-1 rounded-full bg-white opacity-30"
-          style={{
-            top: star.top,
-            left: star.left,
-            animation: `twinkle ${star.duration}s infinite ${star.delay}s`
-          }}
-        ></div>
-      ))}
-    </div>
-  );
-};
+import SectionHeading from './SectionHeading';
 
 const StepsToApply = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -189,10 +157,7 @@ const StepsToApply = () => {
   const positions = isMobile ? mobileStepPositions : stepPositions;
 
   return (
-    <section className="w-full relative overflow-x-hidden overflow-y-auto pb-24">
-      {/* Client-side rendered stars */}
-      <StarsBackground />
-
+    <section id="steps-to-apply" className="relative min-h-screen w-full flex flex-col items-center pt-24 pb-32">
       {/* Custom CSS */}
       <style jsx global>{`
         .bg-radial-purple {
@@ -254,12 +219,6 @@ const StepsToApply = () => {
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(10px); }
           to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes twinkle {
-          0% { opacity: 0.1; }
-          50% { opacity: 0.7; }
-          100% { opacity: 0.1; }
         }
         
         .modal-overlay {
@@ -352,9 +311,9 @@ const StepsToApply = () => {
 
         {/* Heading and Navigation */}
         <div className="sticky top-16 right-8 text-right z-30 p-4 float-right">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white title-glow">
+          <SectionHeading className="mb-6" isHero={false} isFirstComponent={false}>
             Steps to Apply
-          </h1>
+          </SectionHeading>
           <div className="flex justify-end gap-4">
             <button 
               onClick={goToPreviousStep}
