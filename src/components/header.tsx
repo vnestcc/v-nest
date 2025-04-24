@@ -143,7 +143,7 @@ const Header = () => {
                 <span className="text-white">Coming Soon</span>
               </h3>
               <p className="text-white/90 text-xl md:text-2xl mb-10 text-center">
-                We're working on something exciting! The 
+                We&#39;re working on something exciting! The 
                 <span className="text-violet-300 font-medium"> SOLVE-A-THON </span>
                 will be launching soon.
               </p>
