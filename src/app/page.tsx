@@ -4,10 +4,10 @@ import React from 'react';
 import StartupSection from '../components/StartupSection';
 import StepsToApply from '../components/StepsToApply';
 import FoundersNote from '../components/FoundersNote';
-import Whoweare from './components/Whoweare';
-import HeroSection from "@/component/herosection";
-import Header from "@/component/header";
-import Frequently from "@/component/faq";
+import Whoweare from '../components/Whoweare';
+import HeroSection from "@/components/herosection";
+import Header from "@/components/header";
+import Frequently from "@/components/faq";
 
 export default function Home() {
   return (
@@ -38,10 +38,10 @@ export default function Home() {
       <Header />
       <HeroSection />
       <Whoweare />
-      <Frequently />
       <StartupSection />
       <StepsToApply />
       <FoundersNote />
+      <Frequently />
       
     </main>
   );

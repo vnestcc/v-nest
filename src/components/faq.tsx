@@ -40,15 +40,14 @@ export default function Frequently() {
 
         {faqs.map((faq, index) => (
           <button
-        key={index}
-        onClick={() => setSelectedFAQ(faq)}
-        className="text-left px-6 py-4 border border-purple-500 rounded-xl text-white text-lg font-medium shadow-lg hover:shadow-purple-500/50 transition-all duration-300 mb-10 h-22 w-[34rem]"
-        style={{
-          backgroundColor: 'rgba(255, 255, 255, 0.05)',
-          boxShadow: '-8px 8px 10px rgba(168, 85, 247, 0.5)',
-        }}
+            key={index}
+            onClick={() => setSelectedFAQ(faq)}
+            className="text-left px-6 py-4 border border-purple-500 rounded-xl text-white text-lg font-medium shadow-lg transition-all duration-300 mb-10 h-22 w-[34rem] hover-glow hover:cursor-pointer"
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.05)',
+            }}
           >
-        {faq.question}
+            {faq.question}
           </button>
         ))}
       </div>
@@ -65,11 +64,11 @@ export default function Frequently() {
         />
 
         {selectedFAQ ? (
-          <div className="absolute top-[180px] right-[325px] w-[220px] h-[160px] -rotate-3 text-white p-4 text-center font-medium fancy-text">
+          <div className="absolute top-[180px] right-[325px] w-[220px] h-[160px] -rotate-3 text-white p-4 text-center font-medium fancy-text text-[1.15rem] ">
             <p>{selectedFAQ.answer}</p>
           </div>
         ) : (
-          <div className="absolute top-[160px] right-[250px] -rotate-3 text-white text-4xl font-bold heading-gradient">
+          <div className="absolute top-[220px] right-[370px] -rotate-3 text-white text-4xl font-bold heading-gradient">
             V-NEST
           </div>
         )}
