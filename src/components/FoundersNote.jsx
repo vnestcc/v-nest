@@ -2,39 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-
-// Create a client-side only component for stars - reused from other components
-const StarsBackground = () => {
-  const [stars, setStars] = useState([]);
-  
-  useEffect(() => {
-    // Only generate stars on the client side after component mounts
-    const newStars = Array(100).fill().map((_, i) => ({
-      id: i,
-      top: `${Math.random() * 100}%`,
-      left: `${Math.random() * 100}%`,
-      duration: 2 + Math.random() * 5,
-      delay: Math.random() * 5
-    }));
-    setStars(newStars);
-  }, []);
-  
-  return (
-    <div className="absolute inset-0 w-screen h-full overflow-hidden z-10 pointer-events-none">
-      {stars.map((star) => (
-        <div 
-          key={star.id}
-          className="absolute w-1 h-1 rounded-full bg-white opacity-30"
-          style={{
-            top: star.top,
-            left: star.left,
-            animation: `twinkle ${star.duration}s infinite ${star.delay}s`
-          }}
-        ></div>
-      ))}
-    </div>
-  );
-};
+import SectionHeading from './SectionHeading';
 
 const FoundersNote = () => {
   const [isCardVisible, setIsCardVisible] = useState(false);
@@ -50,9 +18,6 @@ const FoundersNote = () => {
   
   return (
     <section className="w-full relative overflow-x-hidden overflow-y-auto pb-32">
-      {/* Client-side rendered stars */}
-      <StarsBackground />
-      
       {/* Custom CSS for animations and effects */}
       <style jsx global>{`
         @keyframes float {
@@ -89,16 +54,17 @@ const FoundersNote = () => {
         }
       `}</style>
 
-      <div className="container mx-auto px-4 w-full py-32">
+      <div className="container mx-auto px-4 w-full py-16">
         <div className="pt-10 pb-20 relative z-10 text-center">
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold text-white mb-6 title-glow"
+          <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            FOUNDER'S NOTE
-          </motion.h1>
+            <SectionHeading isHero={false} isFirstComponent={false}>
+              FOUNDER'S NOTE
+            </SectionHeading>
+          </motion.div>
           <motion.p 
             className="fancy-text text-xl text-purple-200 max-w-2xl mx-auto"
             initial={{ opacity: 0 }}

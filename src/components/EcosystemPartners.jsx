@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import SectionHeading from './SectionHeading';
 
 const EcosystemPartners = () => {
   const [backgroundHexagons, setBackgroundHexagons] = useState([]);
@@ -80,7 +81,7 @@ const EcosystemPartners = () => {
   };
 
   return (
-    <section className="relative w-full overflow-hidden py-24 bg-gradient-to-b from-black to-purple-900/20">
+    <section className="relative w-full overflow-hidden py-12 pt-6 pb-32">
       {/* Background hexagons */}
       {renderBackgroundHexagons()}
       
@@ -90,11 +91,9 @@ const EcosystemPartners = () => {
       {/* Main content */}
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-14">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-purple-500 to-purple-300">
-              Ecosystem Partners
-            </span>
-          </h2>
+          <SectionHeading isHero={false} isFirstComponent={false}>
+            Ecosystem Partners
+          </SectionHeading>
           <p className="text-purple-200/80 text-lg max-w-3xl mx-auto">
             Driving innovation through powerful strategic collaborations that accelerate startup growth and ecosystem development.
           </p>

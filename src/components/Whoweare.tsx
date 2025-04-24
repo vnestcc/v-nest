@@ -4,6 +4,7 @@ import {
   GraduationCap, DollarSign, Users, Star, Box, FileText, 
   UserPlus, Share2, Cpu, Shield, Layers, GitPullRequest, 
 } from 'lucide-react';
+import SectionHeading from '../../components/SectionHeading';
 
 const WhoWeAre: React.FC = () => { 
   const convenors = [ 
@@ -53,12 +54,14 @@ const WhoWeAre: React.FC = () => {
   }, [benefitsList.length]);
 
   return (
-    <div className="text-white bg-gradient-to-br from-purple-950 via-black to-purple-950">
+    <>
       {/* Who We Are */}
-      <section className="pt-20">
+      <section className="pt-20 text-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center px-4">
           <div className="bg-purple-950/40 p-8 rounded-2xl border border-purple-800/30">
-            <h1 className="text-6xl font-extrabold mb-8">Who are we</h1>
+            <SectionHeading className="text-6xl font-extrabold mb-8" isHero={false} isFirstComponent={false}>
+              Who are we
+            </SectionHeading>
             <div className="space-y-6">
               <div className="flex items-start gap-4">
                 <div className="mt-1">
@@ -138,9 +141,11 @@ const WhoWeAre: React.FC = () => {
       </section>
 
       {/* Convenors */}
-      <section className="pt-32">
+      <section className="pt-32 text-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-5xl font-extrabold mb-16 text-white">Convenors</h1>
+          <SectionHeading className="text-5xl font-extrabold mb-16 text-white" isHero={false} isFirstComponent={false}>
+            Convenors
+          </SectionHeading>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {convenors.map((c) => (
           <div key={c.id} className="group relative h-80">
@@ -166,9 +171,11 @@ const WhoWeAre: React.FC = () => {
       </section>
 
       {/* Benefits */}
-      <section id="benefits-section" className="pt-32 pb-16">
+      <section id="benefits-section" className="pt-32 pb-16 text-white">
         <div className="max-w-7xl mx-auto px-4">
-          <h1 className="text-5xl font-extrabold mb-8">Benefits</h1>
+          <SectionHeading className="text-5xl font-extrabold mb-8" isHero={false} isFirstComponent={false}>
+            Benefits
+          </SectionHeading>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefitsList.map((b, i) => (
               <div
@@ -187,7 +194,7 @@ const WhoWeAre: React.FC = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 'use client';
 import { useState } from "react";
 import Image from "next/image";
+import SectionHeading from "../components/SectionHeading";
 
 type FAQ = {
   question: string;
@@ -30,31 +31,28 @@ export default function Frequently() {
   const [selectedFAQ, setSelectedFAQ] = useState<FAQ | null>(null);
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row items-center justify-between px-10 py-12 bg-gradient-to-br from-purple-950 via-black to-purple-950 relative">
-      
-      
+    <section className="flex flex-col md:flex-row items-center justify-between px-10 py-20 relative">
       <div className="w-full md:w-1/2 flex flex-col items-start justify-center space-y-6">
-        <h1 className="text-6xl text-white mb-18 ml-20 heading-gradient title-glow">
-          FAQS
-        </h1>
+        <div className="ml-20">
+          <SectionHeading className="text-5xl font-extrabold mb-8" isHero={false} isFirstComponent={false}>FAQS</SectionHeading>
+        </div>
 
         {faqs.map((faq, index) => (
           <button
             key={index}
             onClick={() => setSelectedFAQ(faq)}
-            className="text-left px-6 py-4 border border-purple-500 rounded-xl text-white text-lg font-medium shadow-lg transition-all duration-300 mb-10 h-22 w-[34rem] hover-glow hover:cursor-pointer"
+            className="text-left px-6 py-4 border border-purple-500 rounded-xl text-white text-lg font-medium shadow-lg hover:shadow-purple-500/50 transition-all duration-300 mb-10 h-22 w-[34rem]"
             style={{
               backgroundColor: 'rgba(255, 255, 255, 0.05)',
+              boxShadow: '-8px 8px 10px rgba(168, 85, 247, 0.5)',
             }}
           >
             {faq.question}
           </button>
         ))}
       </div>
-
       
-      <div className="w-full relative flex justify-end mt-24">
-        
+      <div className="w-full relative flex justify-end">
         <Image 
           src="/faq.svg" 
           alt="FAQ building" 
@@ -73,6 +71,6 @@ export default function Frequently() {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 }
