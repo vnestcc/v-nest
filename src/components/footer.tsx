@@ -98,7 +98,7 @@ const Footer = () => {
               <Image src="/v-nest-logo.svg" alt="V-NEST" width={150} height={75} className="relative z-10 drop-shadow-lg" />
             </div>
             <p className="text-white/70 text-xs text-center mt-2">
-              V-NEST is VIT Chennai's Startup Incubator
+              V-NEST is VIT Chennai&#39;s Startup Incubator
             </p>
           </div>
           
@@ -223,7 +223,7 @@ const Footer = () => {
             <div className="relative flex-shrink-0 w-3 h-3 rounded-full bg-gradient-to-br from-green-400 to-green-600 mr-1.5">
               <div className="absolute -inset-1 rounded-full bg-green-500/20 animate-pulse"></div>
             </div>
-            <p className="text-white/70 text-xs">We're currently accepting applications</p>
+            <p className="text-white/70 text-xs">We&#39;re currently accepting applications</p>
           </div>
         </div>
       </div>
