@@ -31,7 +31,7 @@ jobs:
 
       - name: Verify build output
         run: |
-          if [ -d "./build" ]; then
+          if [ -d "./out" ]; then
             echo "✅ Build successful"
           else
             echo "❌ Build failed - output directory not found"
