@@ -57,6 +57,7 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+  --font-display: "Gentium Book Plus";
 }
 
 body {
