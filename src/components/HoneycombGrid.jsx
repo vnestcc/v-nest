@@ -116,15 +116,15 @@ const HoneycombGrid = ({ startups }) => {
       { x: '68%', y: '58%', size: 260, index: 13 },
       
       // New logos - Second row (4 logos)
-      { x: '23%', y: '73%', size: 240, index: 14 },
+      { x: '23.5%', y: '73.5%', size: 240, index: 14 },
       { x: '41%', y: '74%', size: 270, index: 15 },
       { x: '59%', y: '74%', size: 260, index: 16 },
       { x: '76%', y: '74%', size: 240, index: 17 },
       
       // New logos - Third row (3 logos)
       { x: '31.5%', y: '90%', size: 250, index: 18 },
-      { x: '50%', y: '91%', size: 260, index: 19 },
-      { x: '68%', y: '89%', size: 250, index: 20 },
+      { x: '50%', y: '90%', size: 250, index: 19 },
+      { x: '68%', y: '90%', size: 250, index: 20 },
       
       // New logos - Fourth row (1 logo, placeholder for future additions)
       // { x: '50%', y: '100%', size: 220, index: 21 },
