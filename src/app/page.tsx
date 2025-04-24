@@ -5,6 +5,9 @@ import StartupSection from '../components/StartupSection';
 import StepsToApply from '../components/StepsToApply';
 import FoundersNote from '../components/FoundersNote';
 import Whoweare from './components/Whoweare';
+import HeroSection from "@/component/herosection";
+import Header from "@/component/header";
+import Frequently from "@/component/faq";
 
 export default function Home() {
   return (
@@ -32,11 +35,14 @@ export default function Home() {
           text-shadow: 0 0 30px rgba(186, 104, 255, 0.9), 0 0 60px rgba(186, 104, 255, 0.5);
         }
       `}</style>
-      
+      <Header />
+      <HeroSection />
+      <Whoweare />
+      <Frequently />
       <StartupSection />
       <StepsToApply />
       <FoundersNote />
-      <Whoweare />
+      
     </main>
   );
 }

@@ -346,7 +346,7 @@ const StepsToApply = () => {
       `}</style>
       
       {/* Add radial purple gradient */}
-      <div className="absolute inset-0 bg-radial-purple"></div>
+
 
       <div className="relative w-full min-h-screen overflow-visible">
 

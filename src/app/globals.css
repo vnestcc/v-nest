@@ -1,5 +1,11 @@
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
+/* CSS Variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -154,4 +160,37 @@ code, pre {
 
 h1, h2, h3, h4, h5, h6, p {
   font-family: 'Gentium Book Plus', serif; /* Apply font globally to headers and paragraphs */
+}
+
+
+
+@theme {
+  --animate-mymove: mymove 1s ease-in-out;
+  @keyframes mymove {
+    0% {
+      filter: brightness(0.3);
+    }
+    100% {
+      filter: brightness(1);
+    }
+  }
+  --font-display: "Gentium Book Plus";
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+  body {
+    font-family: var(--font-display);
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 0.5rem;
+  }
+  p {
+    margin-bottom: 1rem;
+  }
 }

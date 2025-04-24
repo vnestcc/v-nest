@@ -29,51 +29,116 @@ const WhoWeAre: React.FC = () => {
   ];
 
   const [visibleBenefits, setVisibleBenefits] = useState<boolean[]>(Array(benefitsList.length).fill(false));
+  
+  // Image gallery for "Who We Are" section - using placeholder images
+  const imageGallery = [
+    '/Startups/Quinproc.jpeg',
+    '/Startups/Quinproc.jpeg',
+    '/Startups/Quinproc.jpeg',
+    '/Startups/Quinproc.jpeg',
+    '/Startups/Quinproc.jpeg',
+  ];
 
-  useEffect(() => { 
-    const handleScroll = () => { 
-      const updatedVisibility = [...visibleBenefits]; 
-      benefitsList.forEach((_, index) => { 
-        const el = document.getElementById(`benefit-${index}`); 
-        if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.8) { 
-          updatedVisibility[index] = true; 
-        } 
-      }); 
-      if (!updatedVisibility.every((val, idx) => val === visibleBenefits[idx])) { 
-        setVisibleBenefits(updatedVisibility); 
-      } 
-    };
+  const [hoveredImage, setHoveredImage] = useState<number | null>(null);
 
-    window.addEventListener('scroll', handleScroll); 
-    handleScroll(); 
-    return () => window.removeEventListener('scroll', handleScroll); 
-  }, [visibleBenefits.length]);
+  // Force benefits to be visible on component mount
+  useEffect(() => {
+    // Set a short delay to ensure DOM is fully loaded
+    const timer = setTimeout(() => {
+      setVisibleBenefits(Array(benefitsList.length).fill(true));
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  }, [benefitsList.length]);
 
   return (
     <div className="text-white bg-gradient-to-br from-purple-950 via-black to-purple-950">
       {/* Who We Are */}
       <section className="pt-20">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
-            <h1 className="text-5xl font-extrabold mb-8">Who are we</h1>
-            <ul className="space-y-6 text-lg leading-relaxed list-disc list-inside text-white/90">
-              <li><strong>V-NEST</strong>, the startup and research foundation of VIT Chennai, nurtures innovation by supporting students, faculty, and external entrepreneurs in building impactful startups.</li>
-              <li>It collaborates with partners like Startup TN and Startup India to offer grants and mentorship.</li>
-              <li>In just three years, V-NEST has empowered nearly 30 startups, aiming to set new standards in incubation and market success.</li>
-            </ul>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center px-4">
+          <div className="bg-purple-950/40 p-8 rounded-2xl border border-purple-800/30">
+            <h1 className="text-6xl font-extrabold mb-8">Who are we</h1>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="mt-1">
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-700">
+                    <Box size={18} className="text-white" />
+                  </div>
+                </div>
+                <div className="text-lg text-white/90">
+                  <strong className="text-violet-300">V-NEST</strong>, the startup and research foundation of VIT Chennai, nurtures innovation by supporting students, faculty, and external entrepreneurs in building impactful startups.
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="mt-1">
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-700">
+                    <Users size={18} className="text-white" />
+                  </div>
+                </div>
+                <div className="text-lg text-white/90">
+                  It collaborates with partners like Startup TN and Startup India to offer grants and mentorship.
+                </div>
+              </div>
+              
+              <div className="flex items-start gap-4">
+                <div className="mt-1">
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full bg-purple-700">
+                    <Star size={18} className="text-white" />
+                  </div>
+                </div>
+                <div className="text-lg text-white/90">
+                  In just three years, V-NEST has empowered nearly 30 startups, aiming to set new standards in incubation and market success.
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="grid grid-cols-3 gap-4">
-            {[...Array(5)].map((_, index) => (
-              <div key={index}
-                className={`h-40 bg-[#3b0a64] rounded-xl hover:scale-110 transition-transform duration-500 ease-in-out ${index === 3 ? 'col-span-2' : ''}`}/>
-            ))}
+          <div className="grid grid-cols-5 grid-rows-2 gap-4">
+            {/* Top row: 3 images */}
+            <div 
+              className={`col-span-2 row-span-1 rounded-xl overflow-hidden transition-all duration-500 ease-in-out ${hoveredImage === 0 ? 'transform scale-110 z-10' : hoveredImage !== null ? 'scale-95' : ''}`}
+              onMouseEnter={() => setHoveredImage(0)}
+              onMouseLeave={() => setHoveredImage(null)}
+            >
+              <img src={imageGallery[0]} alt="V-NEST" className="h-full w-full object-cover" />
+            </div>
+            <div 
+              className={`col-span-2 row-span-1 rounded-xl overflow-hidden transition-all duration-500 ease-in-out ${hoveredImage === 1 ? 'transform scale-110 z-10' : hoveredImage !== null ? 'scale-95' : ''}`}
+              onMouseEnter={() => setHoveredImage(1)}
+              onMouseLeave={() => setHoveredImage(null)}
+            >
+              <img src={imageGallery[1]} alt="V-NEST" className="h-full w-full object-cover" />
+            </div>
+            <div 
+              className={`col-span-1 row-span-1 rounded-xl overflow-hidden transition-all duration-500 ease-in-out ${hoveredImage === 2 ? 'transform scale-110 z-10' : hoveredImage !== null ? 'scale-95' : ''}`}
+              onMouseEnter={() => setHoveredImage(2)}
+              onMouseLeave={() => setHoveredImage(null)}
+            >
+              <img src={imageGallery[2]} alt="V-NEST" className="h-full w-full object-cover" />
+            </div>
+            
+            {/* Bottom row: 2 images */}
+            <div 
+              className={`col-span-2 row-span-1 rounded-xl overflow-hidden transition-all duration-500 ease-in-out ${hoveredImage === 3 ? 'transform scale-110 z-10' : hoveredImage !== null ? 'scale-95' : ''}`}
+              onMouseEnter={() => setHoveredImage(3)}
+              onMouseLeave={() => setHoveredImage(null)}
+            >
+              <img src={imageGallery[3]} alt="V-NEST" className="h-full w-full object-cover" />
+            </div>
+            <div 
+              className={`col-span-3 row-span-1 rounded-xl overflow-hidden transition-all duration-500 ease-in-out ${hoveredImage === 4 ? 'transform scale-110 z-10' : hoveredImage !== null ? 'scale-95' : ''}`}
+              onMouseEnter={() => setHoveredImage(4)}
+              onMouseLeave={() => setHoveredImage(null)}
+            >
+              <img src={imageGallery[4]} alt="V-NEST" className="h-full w-full object-cover" />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Convenors */}
       <section className="pt-32">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-5xl font-extrabold mb-16 text-white">Convenors</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {convenors.map((c) => (
@@ -92,17 +157,17 @@ const WhoWeAre: React.FC = () => {
       </section>
 
       {/* Benefits */}
-      <section className="pt-32 pb-16">
-        <div className="max-w-7xl mx-auto">
+      <section id="benefits-section" className="pt-32 pb-16">
+        <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-5xl font-extrabold mb-8">Benefits</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {benefitsList.map((b, i) => (
               <div
                 key={i}
-                id={`benefit-${i}`}
-                className={`flex items-center gap-4 border-2 border-violet-400 rounded-full px-6 py-4 hover:shadow-[0_0_15px_#c084fc] transition-all duration-300 ${
-                  visibleBenefits[i] ? 'opacity-100 translate-y-0 transition-all duration-700 ease-in' : 'opacity-0 translate-y-8'
+                className={`flex items-center gap-4 border-2 border-violet-400 rounded-full px-6 py-4 transition-all duration-700 ${
+                  visibleBenefits[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
+                style={{ transitionDelay: `${i * 100}ms` }}
               >
                 <div className="w-10 h-10 rounded-full bg-transparent border-2 border-violet-400 flex items-center justify-center text-violet-300">
                   {b.icon}
