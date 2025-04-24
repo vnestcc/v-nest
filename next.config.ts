@@ -2,7 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  assetPrefix: "/v-nest/",
+  images: {
+    unoptimized: true,
+  },
   /* config options here */
 };
 
