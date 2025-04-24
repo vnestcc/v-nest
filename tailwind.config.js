@@ -22,6 +22,7 @@ module.exports = {
       },
       animation: {
         'float': 'float 10s ease-in-out infinite',
+        'pulse': 'pulse 10s ease-in-out infinite',
       },
       keyframes: {
         float: {
@@ -30,6 +31,13 @@ module.exports = {
           '50%': { transform: 'translateY(-35px) translateX(-10px)' },
           '75%': { transform: 'translateY(-15px) translateX(15px)' },
         },
+        pulse: {
+          '0%, 100%': { opacity: 0.05 },
+          '50%': { opacity: 0.15 },
+        },
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
       },
     },
   },

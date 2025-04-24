@@ -4,10 +4,12 @@ import React from 'react';
 import StartupSection from '../components/StartupSection';
 import StepsToApply from '../components/StepsToApply';
 import FoundersNote from '../components/FoundersNote';
+import EcosystemPartners from '../components/EcosystemPartners';
 import Whoweare from './components/Whoweare';
 import HeroSection from "@/component/herosection";
 import Header from "@/component/header";
 import Frequently from "@/component/faq";
+import Footer from "@/component/footer";
 
 export default function Home() {
   return (
@@ -42,7 +44,8 @@ export default function Home() {
       <StartupSection />
       <StepsToApply />
       <FoundersNote />
-      
+      <EcosystemPartners />
+      <Footer />
     </main>
   );
 }
