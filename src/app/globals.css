@@ -73,3 +73,13 @@
   font-family: var(--font-mono);
   letter-spacing: 0.02em;
 }
+
+.hover-glow {
+  transition: all 0.3s ease-in-out;
+  box-shadow: -8px 8px 10px rgba(168, 85, 247, 0.5);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px 10px rgba(168, 85, 247, 0.8);
+  transform: scale(1.05);
+}
