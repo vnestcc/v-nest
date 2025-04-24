@@ -208,31 +208,21 @@ code, pre {
   text-transform: inherit;
 }
 
-<<<<<<< HEAD
 @theme {
-=======
-
-
-:root {
->>>>>>> 5eb810c7aff8f520656cea74662bd1beeadcb6ed
   --animate-mymove: mymove 1s ease-in-out;
-}
-
-@keyframes mymove {
-  0% {
-    filter: brightness(0.3);
-  }
-<<<<<<< HEAD
-  --font-display: "Space Grotesk";
-=======
-  100% {
-    filter: brightness(1);
-  }
+    @keyframes mymove {
+      0% {
+        filter: brightness(0.3);
+      }
+      100% {
+        filter: brightness(1);
+      }
+    }
+    --font-display: "Space Grotesk";
 }
 
 :root {
   --font-display: "Gentium Book Plus";
->>>>>>> 5eb810c7aff8f520656cea74662bd1beeadcb6ed
 }
 
 @layer base {
