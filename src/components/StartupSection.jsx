@@ -2,39 +2,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import HoneycombGrid from './HoneycombGrid';
-
-// Create a client-side only component for stars
-const StarsBackground = () => {
-  const [stars, setStars] = useState([]);
-  
-  useEffect(() => {
-    // Only generate stars on the client side after component mounts
-    const newStars = Array(150).fill().map((_, i) => ({
-      id: i,
-      top: `${Math.random() * 140}%`,
-      left: `${Math.random() * 100}%`,
-      duration: 2 + Math.random() * 5,
-      delay: Math.random() * 5
-    }));
-    setStars(newStars);
-  }, []);
-  
-  return (
-    <div className="absolute inset-0 w-screen h-[140vh] overflow-hidden z-10 pointer-events-none">
-      {stars.map((star) => (
-        <div 
-          key={star.id}
-          className="absolute w-1 h-1 rounded-full bg-white opacity-30"
-          style={{
-            top: star.top,
-            left: star.left,
-            animation: `twinkle ${star.duration}s infinite ${star.delay}s`
-          }}
-        ></div>
-      ))}
-    </div>
-  );
-};
+import SectionHeading from './SectionHeading';
 
 const StartupSection = () => {
   const startups = [
@@ -251,7 +219,7 @@ const StartupSection = () => {
   ];
 
   return (
-    <section className="w-screen bg-black relative overflow-hidden min-h-[150vh]">
+    <section className="w-screen relative overflow-hidden min-h-[150vh]">
       {/* Add global CSS for text shadow and gradients */}
       <style jsx global>{`
         .text-shadow {
@@ -265,21 +233,13 @@ const StartupSection = () => {
           width: 100vw;
           height: 140vh;
         }
-        @keyframes twinkle {
-          0% { opacity: 0.1; }
-          50% { opacity: 0.7; }
-          100% { opacity: 0.1; }
-        }
       `}</style>
-      
-      {/* Client-side rendered stars */}
-      <StarsBackground />
       
       <div className="container mx-auto px-4 w-full py-8">
         <div className="pt-10 pb-12 relative z-10 text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 title-glow tracking-wide uppercase">
+          <SectionHeading isFirstComponent={true} className="mb-6">
             OUR STARTUPS
-          </h1>
+          </SectionHeading>
         </div>
         
         <div className="relative">

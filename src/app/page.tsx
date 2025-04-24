@@ -13,7 +13,7 @@ import Footer from "@/component/footer";
 
 export default function Home() {
   return (
-    <main className="bg-black min-h-screen w-screen overflow-hidden relative">
+    <main className="min-h-screen w-screen overflow-hidden relative">
       {/* Global backgrounds - Applied once for the entire page */}
       <div className="fixed inset-0 w-screen h-screen bg-gradient-to-br from-purple-950 via-black to-purple-950 -z-50"></div>
       
@@ -27,12 +27,6 @@ export default function Home() {
       
       {/* Global CSS for shared effects */}
       <style jsx global>{`
-        @keyframes twinkle {
-          0% { opacity: 0.1; }
-          50% { opacity: 0.7; }
-          100% { opacity: 0.1; }
-        }
-        
         .title-glow {
           text-shadow: 0 0 30px rgba(186, 104, 255, 0.9), 0 0 60px rgba(186, 104, 255, 0.5);
         }

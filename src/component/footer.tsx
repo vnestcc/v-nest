@@ -10,11 +10,9 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="relative w-full mt-8 overflow-hidden">
+    <footer className="relative w-full overflow-hidden mt-[-1rem]">
       {/* Background with modern gradient effect */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="absolute w-full h-full bg-gradient-to-br from-purple-950 via-black to-purple-950"></div>
-        
         {/* Animated background with subtle wave effect */}
         <div className="absolute bottom-0 left-0 right-0 h-60 opacity-30"
           style={{
@@ -198,7 +196,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        
+          
         {/* Newsletter section - centered below main columns */}
         <div className="mt-8 md:mt-10 md:mx-auto md:max-w-md">
           <div className="text-center">
