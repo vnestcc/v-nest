@@ -2,12 +2,10 @@ import { useEffect, useRef} from 'react';
 
 export default function HeroSection() {
     const textVisible = useRef(false);
-    
 
     useEffect(() => {
         const textTimer = setTimeout(() => {
             textVisible.current = true;
-             
         }, 100);
         return () => {
             clearTimeout(textTimer);
