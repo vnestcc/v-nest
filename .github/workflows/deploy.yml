@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - deploy
+  pull_request:
+    types: [closed]
+    branches:
+      - deploy
   workflow_dispatch:
 
 permissions:
