@@ -3,13 +3,45 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Font variables */
+  --font-primary: var(--font-outfit);
+  --font-heading: var(--font-space-grotesk);
+  --font-mono: var(--font-spline-mono);
+  
+  /* Font sizes */
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.25rem;
+  --fs-2xl: 1.5rem;
+  --fs-3xl: 1.875rem;
+  --fs-4xl: 2.25rem;
+  --fs-5xl: 3rem;
+  --fs-6xl: 3.75rem;
+  --fs-7xl: 4.5rem;
+  --fs-8xl: 6rem;
+  
+  /* Line heights */
+  --lh-tight: 1.25;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.75;
+  
+  /* Letter spacing */
+  --ls-tight: -0.025em;
+  --ls-normal: 0em;
+  --ls-wide: 0.025em;
+  --ls-wider: 0.05em;
+  --ls-widest: 0.1em;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-primary);
+  --font-heading: var(--font-heading);
+  --font-mono: var(--font-mono);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +54,94 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary), system-ui, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh;
+  font-size: var(--fs-base);
+  line-height: var(--lh-normal);
+  /* @apply bg-gradient-to-br from-purple-950 via-black to-purple-950; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+}
+
+h1 {
+  font-size: var(--fs-5xl);
+  letter-spacing: var(--ls-tight);
+}
+
+h2 {
+  font-size: var(--fs-4xl);
+}
+
+h3 {
+  font-size: var(--fs-3xl);
+}
+
+h4 {
+  font-size: var(--fs-2xl);
+}
+
+h5 {
+  font-size: var(--fs-xl);
+}
+
+h6 {
+  font-size: var(--fs-lg);
+}
+
+code, pre {
+  font-family: var(--font-mono), monospace;
+}
+
+/* VNEST Custom Styles */
+.bg-radial-purple {
+  background: radial-gradient(circle at center, rgba(126, 34, 206, 0.3) 0%, rgba(76, 29, 149, 0.1) 40%, rgba(0, 0, 0, 0) 80%);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.title-glow {
+  text-shadow: 0 0 30px rgba(186, 104, 255, 0.9), 0 0 60px rgba(186, 104, 255, 0.5);
+  font-family: var(--font-heading), system-ui, sans-serif;
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.text-shadow {
+  text-shadow: 0 0 15px rgba(186, 104, 255, 0.7);
+}
+
+.heading-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+}
+
+.subheading {
+  font-family: var(--font-primary), system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: var(--ls-wide);
+}
+
+.fancy-text {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  letter-spacing: var(--ls-wider);
+}
+
+.tech-text {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: var(--ls-tight);
 }
