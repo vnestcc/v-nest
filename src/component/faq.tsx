@@ -34,19 +34,21 @@ export default function Frequently() {
       
       
       <div className="w-full md:w-1/2 flex flex-col items-start justify-center space-y-6">
-        <h1 className="text-6xl text-white mb-18 ml-20">FAQS</h1>
+        <h1 className="text-6xl text-white mb-18 ml-20 heading-gradient title-glow">
+          FAQS
+        </h1>
 
         {faqs.map((faq, index) => (
           <button
-            key={index}
-            onClick={() => setSelectedFAQ(faq)}
-            className="text-left px-6 py-4 border border-purple-500 rounded-xl text-white text-lg font-medium shadow-lg hover:shadow-purple-500/50 transition-all duration-300 mb-10 h-22 w-[34rem]"
-            style={{
-              backgroundColor: 'rgba(255, 255, 255, 0.05)',
-              boxShadow: '-8px 8px 10px rgba(168, 85, 247, 0.5)',
-            }}
+        key={index}
+        onClick={() => setSelectedFAQ(faq)}
+        className="text-left px-6 py-4 border border-purple-500 rounded-xl text-white text-lg font-medium shadow-lg hover:shadow-purple-500/50 transition-all duration-300 mb-10 h-22 w-[34rem]"
+        style={{
+          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+          boxShadow: '-8px 8px 10px rgba(168, 85, 247, 0.5)',
+        }}
           >
-            {faq.question}
+        {faq.question}
           </button>
         ))}
       </div>
@@ -57,14 +59,18 @@ export default function Frequently() {
         <Image 
           src="/faq.svg" 
           alt="FAQ building" 
-          width={500} 
-          height={500} 
-          className="object-contain w-[500px] h-auto" 
+          width={700} 
+          height={700} 
+          className="object-contain w-[700px] h-[700px]" 
         />
 
-        {selectedFAQ && (
-          <div className="absolute top-[120px] right-[200px] w-[220px] h-[160px] -rotate-3  text-white p-4  text-center">
+        {selectedFAQ ? (
+          <div className="absolute top-[180px] right-[325px] w-[220px] h-[160px] -rotate-3 text-white p-4 text-center font-medium fancy-text">
             <p>{selectedFAQ.answer}</p>
+          </div>
+        ) : (
+          <div className="absolute top-[160px] right-[250px] -rotate-3 text-white text-4xl font-bold heading-gradient">
+            V-NEST
           </div>
         )}
       </div>
