@@ -157,7 +157,7 @@ const StepsToApply = () => {
   const positions = isMobile ? mobileStepPositions : stepPositions;
 
   return (
-    <section id="steps-to-apply" className="w-full relative overflow-x-hidden overflow-y-auto pb-24">
+    <section id="steps-to-apply" className="relative min-h-screen w-full flex flex-col items-center pt-24 pb-32">
       {/* Custom CSS */}
       <style jsx global>{`
         .bg-radial-purple {

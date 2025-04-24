@@ -56,7 +56,7 @@ const WhoWeAre: React.FC = () => {
   return (
     <>
       {/* Who We Are */}
-      <section className="pt-20 text-white">
+      <section id="about-us" className="pt-20 text-white">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center px-4">
           <div className="bg-purple-950/40 p-8 rounded-2xl border border-purple-800/30">
             <SectionHeading className="text-6xl font-extrabold mb-8" isHero={false} isFirstComponent={false}>
@@ -149,13 +149,15 @@ const WhoWeAre: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {convenors.map((c) => (
           <div key={c.id} className="group relative h-80">
-            {/* Convenor Image */}
-            <div className="absolute inset-x-0 top-0 rounded-xl bg-[#3b0a64] overflow-hidden h-64 cursor-pointer transform transition-all duration-700 ease-in-out group-hover:-translate-y-6 group-hover:shadow-lg">
-          <img
-            src={c.image}
-            alt={c.name}
-            className="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:translate-y-[-10px]"
-          />
+            {/* Convenor Image with Border */}
+            <div className="absolute inset-x-0 top-0 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-800 p-[8px] h-64 transform transition-all duration-700 ease-in-out group-hover:-translate-y-6 group-hover:shadow-xl shadow-[0_0_20px_rgba(129,140,248,0.6)]">
+              <div className="w-full h-full rounded-lg bg-[#3b0a64] overflow-hidden">
+                <img
+                  src={c.image}
+                  alt={c.name}
+                  className="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:translate-y-[-10px]"
+                />
+              </div>
             </div>
             {/* Convenor Details */}
             <div className="absolute inset-x-0 bottom-0 bg-[#2a003f] rounded-xl p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out delay-100 shadow-lg border border-purple-500/30">

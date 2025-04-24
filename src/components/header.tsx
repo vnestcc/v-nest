@@ -6,14 +6,32 @@ import Link from 'next/link';
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-  // Navigation items
+  // Navigation items with section IDs
   const navigation = [
-    { title: "About Us", path: "#" },
-    { title: "Our Startups", path: "#" },
-    { title: "Steps to Apply", path: "#" },
-    { title: "FAQs", path: "#" },
+    { title: "About Us", path: "#about-us" },
+    { title: "Our Startups", path: "#our-startups" },
+    { title: "Steps to Apply", path: "#steps-to-apply" },
+    { title: "FAQs", path: "#faqs" },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    const element = document.querySelector(path);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    // Close mobile menu if open
+    if (mobileMenuOpen) {
+      setMobileMenuOpen(false);
+    }
+  };
+
+  const handleSolveathonClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setShowModal(true);
+  };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50">
@@ -30,6 +48,7 @@ const Header = () => {
                 key={index} 
                 href={item.path} 
                 className="text-white text-lg hover:text-violet-300 transition"
+                onClick={(e) => handleNavClick(e, item.path)}
               >
                 {item.title}
               </Link>
@@ -38,16 +57,17 @@ const Header = () => {
         </div>
 
         <div>
-          <Link href="#">
-            <button className="bg-gradient-to-r from-purple-700 to-violet-600 text-white px-6 py-2 rounded-full shadow-md transition-all duration-300 hover:shadow-purple-500/50 border border-violet-400 h-14 transform hover:-translate-y-1">
-              SOLVE-A-THON
-            </button>
-          </Link>
+          <button 
+            onClick={handleSolveathonClick} 
+            className="bg-gradient-to-r from-purple-700 to-violet-600 text-white px-6 py-2 rounded-full shadow-md transition-all duration-300 hover:shadow-purple-500/50 border border-violet-400 h-14 transform hover:-translate-y-1"
+          >
+            SOLVE-A-THON
+          </button>
         </div>
       </div>
 
       {/* Mobile Header */}
-      <div className="md:hidden flex justify-between items-center px-4 py-4">
+      <div className="flex md:hidden items-center justify-between bg-[#2a003f]/50 px-4 py-3 backdrop-blur-md shadow-md">
         <Link href="#">
           <h1 className="text-2xl text-white font-semibold">LOGO</h1>
         </Link>
@@ -93,20 +113,49 @@ const Header = () => {
           <ul className="space-y-4">
             {navigation.map((item, idx) => (
               <li key={idx} className="text-white/90 hover:text-violet-300">
-                <Link href={item.path} className="block py-2">
+                <Link 
+                  href={item.path} 
+                  className="block py-2"
+                  onClick={(e) => handleNavClick(e, item.path)}
+                >
                   {item.title}
                 </Link>
               </li>
             ))}
             <li className="pt-2">
-              <Link href="#">
-                <button className="w-full py-2 px-4 text-white font-medium bg-purple-700 hover:bg-purple-600 active:bg-purple-800 duration-150 rounded-full border border-violet-400 flex items-center justify-center">
-                  SOLVE-A-THON
-                </button>
-              </Link>
+              <button 
+                onClick={handleSolveathonClick}
+                className="w-full py-2 px-4 text-white font-medium bg-purple-700 hover:bg-purple-600 active:bg-purple-800 duration-150 rounded-full border border-violet-400 flex items-center justify-center"
+              >
+                SOLVE-A-THON
+              </button>
             </li>
           </ul>
         </nav>
+      )}
+
+      {/* Coming Soon Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+          <div className="bg-gradient-to-br from-[#2a003f] to-[#3b0058] p-12 rounded-2xl shadow-2xl border border-purple-500/30 max-w-2xl w-full mx-4 transform transition-all animate-fadeIn">
+            <div className="flex flex-col items-center">
+              <h3 className="text-5xl md:text-6xl font-extrabold text-white title-glow uppercase mb-6">
+                <span className="text-white">Coming Soon</span>
+              </h3>
+              <p className="text-white/90 text-xl md:text-2xl mb-10 text-center">
+                We're working on something exciting! The 
+                <span className="text-violet-300 font-medium"> SOLVE-A-THON </span>
+                will be launching soon.
+              </p>
+              <button
+                onClick={() => setShowModal(false)}
+                className="mt-6 bg-purple-700 hover:bg-purple-600 active:bg-purple-800 text-white py-3 px-8 rounded-full border-2 border-violet-400 transition-all duration-300 text-lg hover:shadow-lg hover:shadow-purple-700/50 transform hover:-translate-y-1"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </header>
   );
