@@ -7,11 +7,12 @@ import {
 
 const WhoWeAre: React.FC = () => { 
   const convenors = [ 
-    { id: 1, name: 'Dr. Sasikumar M', position: 'Director, V-NEST' }, 
-    { id: 2, name: 'Dr. Ravi V', position: 'Assistant Director, V-NEST (IIC)' }, 
-    { id: 3, name: 'Dr Karthiyaini S', position: 'Assistant Director, V-NEST (EDC)' }, 
-    { id: 4, name: 'Dr. Jayarangan L', position: 'Manager, Incubation' }, 
+    { id: 1, name: 'Dr. Sasikumar M', position: 'Director, V-NEST', image: '/convenors/image.png' }, 
+    { id: 2, name: 'Dr. Ravi V', position: 'Assistant Director, V-NEST (IIC)', image: '/convenors/image2.png' }, 
+    { id: 3, name: 'Dr. Karthiyaini S', position: 'Assistant Director, V-NEST (EDC)', image: '/convenors/image3.png' }, 
+    { id: 4, name: 'Dr. Jayarangan L', position: 'Manager, Incubation', image: '/convenors/image.png' }, 
   ];
+  
 
   const benefitsList = [ 
     { name: 'Full Attendance Relaxation', icon: <GraduationCap size={20} /> }, 
@@ -32,11 +33,11 @@ const WhoWeAre: React.FC = () => {
   
   // Image gallery for "Who We Are" section - using placeholder images
   const imageGallery = [
-    '/Startups/Quinproc.jpeg',
-    '/Startups/Quinproc.jpeg',
-    '/Startups/Quinproc.jpeg',
-    '/Startups/Quinproc.jpeg',
-    '/Startups/Quinproc.jpeg',
+    '/whoweare/IMG_4808.webp',
+    '/whoweare/IMG_4810.webp',
+    '/whoweare/IMG_4854.webp',
+    '/whoweare/IMG_4850.webp',
+    '/whoweare/IMG_4863.webp',
   ];
 
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
@@ -141,17 +142,25 @@ const WhoWeAre: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-5xl font-extrabold mb-16 text-white">Convenors</h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {convenors.map((c) => (
-              <div key={c.id} className="group relative h-80">
-                <div className="absolute inset-x-0 top-0 rounded-xl bg-[#3b0a64] overflow-hidden h-64 cursor-pointer transform transition-all duration-700 ease-in-out group-hover:-translate-y-6">
-                  <div className="w-full h-full bg-gradient-to-br from-[#3b0a64] to-[#5a1090]"></div>
-                </div>
-                <div className="absolute inset-x-0 bottom-0 bg-[#2a003f] rounded-xl p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out delay-100 shadow-lg border border-purple-500/30">
-                  <h3 className="text-xl font-bold text-white">{c.name}</h3>
-                  <p className="text-purple-300 mt-1">{c.position}</p>
-                </div>
-              </div>
-            ))}
+        {convenors.map((c) => (
+          <div key={c.id} className="group relative h-80">
+            {/* Convenor Image */}
+            <div className="absolute inset-x-0 top-0 rounded-xl bg-[#3b0a64] overflow-hidden h-64 cursor-pointer transform transition-all duration-700 ease-in-out group-hover:-translate-y-6 group-hover:shadow-lg">
+          <img
+            src={c.image}
+            alt={c.name}
+            className="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:translate-y-[-10px]"
+          />
+            </div>
+            {/* Convenor Details */}
+            <div className="absolute inset-x-0 bottom-0 bg-[#2a003f] rounded-xl p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-in-out delay-100 shadow-lg border border-purple-500/30">
+          <h3 className="text-xl font-bold text-white text-wrap">
+            {c.name}
+          </h3>
+          <p className="text-purple-300 mt-1">{c.position}</p>
+            </div>
+          </div>
+        ))}
           </div>
         </div>
       </section>
