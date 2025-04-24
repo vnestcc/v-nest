@@ -42,20 +42,18 @@ const Header = () => {
         </div>
 
       <div className="flex-1 flex justify-center">
-        <nav className="flex items-center gap-30 bg-white/10 px-8 py-3 rounded-2xl backdrop-blur-md shadow-md h-[4.375rem]">
-          <Link href="#" className="text-white text-2xl hover:text-purple-300 transition">
-            About 
-          </Link>
-          <Link href="#" className="text-white text-2xl hover:text-purple-300 transition">
-            Our Startups
-          </Link>
-          <Link href="#" className="text-white text-2xl hover:text-purple-300 transition">
-            Steps to Apply
-          </Link>
-          <Link href="#" className="text-white text-2xl hover:text-purple-300 transition">
-            FAQs
-          </Link>
-        </nav>
+       <nav className="flex items-center gap-8 bg-[#2a003f]/30 px-8 py-3 rounded-2xl backdrop-blur-md shadow-md border border-purple-500/30 h-[4.375rem]">
+            {navigation.map((item, index) => (
+              <Link 
+                key={index} 
+                href={item.path} 
+                className="text-white text-lg hover:text-violet-300 transition"
+                onClick={(e) => handleNavClick(e, item.path)}
+              >
+                {item.title}
+              </Link>
+            ))}
+          </nav>
       </div>
 
         <div>
