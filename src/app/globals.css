@@ -1,33 +1,75 @@
-@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:wght@400;500;700&display=swap');
 @import "tailwindcss";
 
-@theme {
+/* CSS Variables */
+:root {
+  --font-primary: 'Outfit', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-mono: 'Spline Sans Mono', monospace;
   --animate-mymove: mymove 1s ease-in-out;
-  @keyframes mymove {
-    0% {
-      filter: brightness(0.3);
-    }
-    100% {
-      filter: brightness(1);
-    }
-  }
-  --font-display: "Gentium Book Plus";
 }
 
+/* Keyframes */
+@keyframes mymove {
+  0% {
+    filter: brightness(0.3);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+/* Base Styles */
 @layer base {
   html {
     font-size: 16px;
   }
   body {
-    font-family: var(--font-display);
+    font-family: var(--font-primary);
     background-color: #f0f0f0;
     color: #333;
     line-height: 1.6;
   }
   h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
     margin-bottom: 0.5rem;
   }
   p {
     margin-bottom: 1rem;
   }
+}
+
+/* Typography Classes */
+.title-glow {
+  text-shadow: 0 0 30px rgba(186, 104, 255, 0.9), 0 0 60px rgba(186, 104, 255, 0.5);
+  font-family: var(--font-heading);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.heading-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+}
+
+.subheading {
+  font-family: var(--font-primary);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+}
+
+.fancy-text {
+  font-family: var(--font-heading);
+  letter-spacing: 0.08em;
+}
+
+.tech-text {
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
 }
