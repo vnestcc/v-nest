@@ -74,6 +74,46 @@ body {
   /* @apply bg-gradient-to-br from-purple-950 via-black to-purple-950; */
 }
 
+/* Global font for most content */
+p, div, span, a, button, input, textarea, select, li {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Section heading styles */
+.section-heading {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  text-shadow: 0 0 30px rgba(186, 104, 255, 0.9), 0 0 60px rgba(186, 104, 255, 0.5);
+  font-size: var(--fs-5xl);
+  line-height: var(--lh-tight);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .section-heading {
+    font-size: var(--fs-7xl);
+  }
+}
+
+/* Startup heading style for consistent application across the site */
+.startup-heading {
+  font-size: var(--fs-5xl);
+  font-weight: bold;
+  letter-spacing: var(--ls-widest);
+  text-transform: uppercase;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .startup-heading {
+    font-size: var(--fs-7xl);
+  }
+}
+
+/* Default heading styles */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), system-ui, sans-serif;
   font-weight: 700;
@@ -153,29 +193,32 @@ code, pre {
 .tech-text {
   font-family: var(--font-mono), monospace;
   letter-spacing: var(--ls-tight);
-
-  font-family: 'Gentium Book Plus', serif;
-  background: linear-gradient(to bottom right, #6a0dad, #000000, #6a0dad); /* purple-950 to black to purple-950 */
-  color: white; /* Ensures text remains visible against dark background */
 }
 
-h1, h2, h3, h4, h5, h6, p {
-  font-family: 'Gentium Book Plus', serif; /* Apply font globally to headers and paragraphs */
+/* Exception classes for components that should maintain original style */
+.hero-section h1,
+.hero-section h2,
+.hero-section h3,
+.first-component-header {
+  /* These will use their original styling without the global overrides */
+  font-family: inherit;
+  text-shadow: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
 }
 
-
-
-:root {
+@theme {
   --animate-mymove: mymove 1s ease-in-out;
-}
-
-@keyframes mymove {
-  0% {
-    filter: brightness(0.3);
-  }
-  100% {
-    filter: brightness(1);
-  }
+    @keyframes mymove {
+      0% {
+        filter: brightness(0.3);
+      }
+      100% {
+        filter: brightness(1);
+      }
+    }
+    --font-display: "Space Grotesk";
 }
 
 :root {
@@ -187,7 +230,7 @@ h1, h2, h3, h4, h5, h6, p {
     font-size: 16px;
   }
   body {
-    font-family: var(--font-display);
+    font-family: 'Outfit', sans-serif;
     background-color: #f0f0f0;
     color: #333;
     line-height: 1.6;
