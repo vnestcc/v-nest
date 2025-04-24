@@ -5,6 +5,8 @@ import StartupSection from '../components/StartupSection';
 import StepsToApply from '../components/StepsToApply';
 import FoundersNote from '../components/FoundersNote';
 import Whoweare from './components/Whoweare';
+import Image from "next/image";
+
 import HeroSection from "@/component/herosection";
 import Header from "@/component/header";
 import Frequently from "@/component/faq";
