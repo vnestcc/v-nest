@@ -13,7 +13,7 @@ const Header = () => {
       <div className="flex-1 flex justify-center">
         <nav className="flex items-center gap-30 bg-white/10 px-8 py-3 rounded-2xl backdrop-blur-md shadow-md h-[4.375rem]">
           <Link href="#" className="text-white text-2xl hover:text-purple-300 transition">
-            About Us
+            About 
           </Link>
           <Link href="#" className="text-white text-2xl hover:text-purple-300 transition">
             Our Startups
