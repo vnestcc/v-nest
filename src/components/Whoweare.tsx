@@ -11,7 +11,7 @@ const WhoWeAre: React.FC = () => {
     { id: 1, name: 'Dr. Sasikumar M', position: 'Director, V-NEST', image: '/convenors/image.png' }, 
     { id: 2, name: 'Dr. Ravi V', position: 'Assistant Director, V-NEST (IIC)', image: '/convenors/image2.png' }, 
     { id: 3, name: 'Dr. Karthiyaini S', position: 'Assistant Director, V-NEST (EDC)', image: '/convenors/image3.png' }, 
-    // { id: 4, name: 'Dr. Jayarangan L', position: 'Manager, Incubation', image: '/convenors/image.png' }, 
+    { id: 4, name: 'Dr. Jayarangan L', position: 'Manager, Incubation', image: '/convenors/unnamed.png' }, 
   ];
   
 
@@ -34,11 +34,11 @@ const WhoWeAre: React.FC = () => {
   
   // Image gallery for "Who We Are" section - using placeholder images
   const imageGallery = [
-    '/whoweare/IMG_4808.webp',
-    '/whoweare/IMG_4810.webp',
-    '/whoweare/IMG_4854.webp',
+    '/whoweare/AB-3-4.jpg',
+    '/whoweare/AB3-1.jpg',
     '/whoweare/IMG_4850.webp',
-    '/whoweare/IMG_4863.webp',
+    '/whoweare/AB3-3.jpeg',
+    '/whoweare/AB3-4.jpeg',
   ];
 
   const [hoveredImage, setHoveredImage] = useState<number | null>(null);
@@ -118,7 +118,7 @@ const WhoWeAre: React.FC = () => {
               onMouseEnter={() => setHoveredImage(2)}
               onMouseLeave={() => setHoveredImage(null)}
             >
-              <img src={imageGallery[2]} alt="V-NEST" className="h-full w-full object-cover" />
+              <img src={imageGallery[2]} alt="V-NEST" className="h-full w-full object-fill object-center" />
             </div>
             
             {/* Bottom row: 2 images */}
@@ -155,7 +155,7 @@ const WhoWeAre: React.FC = () => {
                 <img
                   src={c.image}
                   alt={c.name}
-                  className="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:translate-y-[-10px]"
+                  className="w-full h-full object-cover transform transition-transform duration-700 ease-in-out group-hover:translate-y-[-10px] p-3"
                 />
               </div>
             </div>
