@@ -42,7 +42,7 @@ const Header = () => {
         </div>
 
       <div className="flex-1 flex justify-center">
-        <nav className="flex items-center gap-8 bg-[#2a003f]/30 px-8 py-3 rounded-2xl backdrop-blur-md shadow-md border border-purple-500/30 h-[4.375rem]">
+       <nav className="flex items-center gap-8 bg-[#2a003f]/30 px-8 py-3 rounded-2xl backdrop-blur-md shadow-md border border-purple-500/30 h-[4.375rem]">
             {navigation.map((item, index) => (
               <Link 
                 key={index} 

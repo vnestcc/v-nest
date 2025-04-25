@@ -86,7 +86,7 @@ const FoundersNote = () => {
           >
             <div className="profile-image-container">
               <Image 
-                src="/sasi1.jpg" 
+                src="/convenors/image.png" 
                 alt="Founder" 
                 fill
                 sizes="280px"
